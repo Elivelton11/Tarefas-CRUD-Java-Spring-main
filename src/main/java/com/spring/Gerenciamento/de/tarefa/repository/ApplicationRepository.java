@@ -1,6 +1,6 @@
 package com.spring.Gerenciamento.de.tarefa.repository;
 
-import com.spring.Gerenciamento.de.tarefa.entity.Todo;
+import com.spring.Gerenciamento.de.tarefa.entity.Tarefa;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * - Todo: entidade gerenciada
  * - Long: tipo da chave primária (ID)
  */
-public interface TodoRepository extends JpaRepository<Todo, Long> {
+public interface ApplicationRepository extends JpaRepository<Tarefa, Long> {
     
     // Esta interface herda automaticamente os seguintes métodos do JpaRepository:
     // - save(Todo todo): salva ou atualiza uma tarefa
