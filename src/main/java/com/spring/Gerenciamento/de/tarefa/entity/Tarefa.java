@@ -9,57 +9,28 @@ import lombok.Setter;
  * Entidade Todo representa uma tarefa no sistema de gerenciamento.
  * Mapeada para a tabela 'todos' no banco de dados.
  */
-
+@Getter
+@Setter
 @Entity
 @Table(name="Tarefa")
 public class Tarefa {
-    private int id;
-    private String nome;
-    private String descricao;
-    private boolean realizado;
-    private int prioridade;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getId() {
-        return id;
-    }
+    private Long id;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @Column(nullable = false)
+    @NotBlank
+    private String nome; // Nome/título da tarefa
 
-    public String getNome() {
-        return nome;
-    }
+    @NotBlank
+    private String descricao; // Descrição detalhada
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    @Column(nullable = false)
+    private boolean realizado; // Status de conclusão
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public boolean isRealizado() {
-        return realizado;
-    }
-
-    public void setRealizado(boolean realizado) {
-        this.realizado = realizado;
-    }
-
-    public int getPrioridade() {
-        return prioridade;
-    }
-
-    public void setPrioridade(int prioridade) {
-        this.prioridade = prioridade;
-    }
+    @Column(nullable = false)
+    private int prioridade; // Nível de prioridade (ex: 1=alta, 2=média, 3=baixa)
 
 
     // Construtor padrão sem argumentos necessário para o JPA
